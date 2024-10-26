@@ -12,5 +12,39 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!--<Menu>
+			<MenuItem Header="_File">
+				<MenuItem Header="_New" Command="{Binding NewCommand}"></MenuItem>
+				<MenuItem Header="_Open"></MenuItem>
+				<MenuItem Header="_Save"></MenuItem>
+				<MenuItem Header="_Save Copy"></MenuItem>
+			</MenuItem>
+		</Menu>-->
+        <DockPanel Grid.Row="1">
+            <TabStrip>
+                <TabStripItem Content="File" />
+                <TabStripItem Content="Timeline" />
+                <TabStripItem Content="Universe" />
+                <TabStripItem Content="Stories" />
+                <TabStripItem Content="Characters" />
+                <TabStripItem Content="Settings" />
+                <TabStripItem Content="Exit" />
+            </TabStrip>
+        </DockPanel>
+
+        <ContentControl Content="{Binding TestViewModel}" Grid.Row="2" />
+
+        <!--<AvaloniaEdit:TextEditor Text="Hello AvaloniaEdit!" IsEnabled="{Binding IsProjectLoaded}"
+								 LineNumbersForeground="AliceBlue"
+                           ShowLineNumbers="True"
+
+								 Grid.Row="1" />-->
+    </Grid>
 </UserControl>

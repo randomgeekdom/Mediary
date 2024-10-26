@@ -5,4 +5,7 @@ namespace Mediary.ViewModels;
 public partial class MainViewModel : ViewModelBase
 {
     [ObservableProperty] private string _greeting = "Welcome to Avalonia!";
+    public TestViewModel TestViewModel { get; } = new TestViewModel();
 }
+
+public class TestViewModel : ViewModelBase{}
