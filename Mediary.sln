@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediary.iOS", "Mediary\Medi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediary.Browser", "Mediary\Mediary.Browser\Mediary.Browser.csproj", "{15EF06B6-B9C2-4784-9A26-DFE6FB8B3C00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediary.Domain", "Mediary.Domain\Mediary.Domain.csproj", "{892C93E7-49C8-4E2E-B28C-E432408F0DC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,5 +42,9 @@ Global
 		{15EF06B6-B9C2-4784-9A26-DFE6FB8B3C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15EF06B6-B9C2-4784-9A26-DFE6FB8B3C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15EF06B6-B9C2-4784-9A26-DFE6FB8B3C00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{892C93E7-49C8-4E2E-B28C-E432408F0DC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{892C93E7-49C8-4E2E-B28C-E432408F0DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{892C93E7-49C8-4E2E-B28C-E432408F0DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{892C93E7-49C8-4E2E-B28C-E432408F0DC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -27,7 +27,14 @@
 				<MenuItem Header="_Save Copy"></MenuItem>
 			</MenuItem>
 		</Menu>-->
-        <DockPanel Grid.Row="1">
+        
+        <StackPanel IsVisible="{Binding IsProjectNotLoaded}">
+	        
+	        <Button Content="New Project" Click="Create_OnClick"></Button>
+	        <Button Content="LoadProject" Click="Load_OnClick"></Button>
+        </StackPanel>
+        
+        <DockPanel Grid.Row="1" IsVisible="{Binding IsProjectLoaded}">
             <TabStrip>
                 <TabStripItem Content="File" />
                 <TabStripItem Content="Timeline" />
@@ -39,7 +46,7 @@
             </TabStrip>
         </DockPanel>
 
-        <ContentControl Content="{Binding TestViewModel}" Grid.Row="2" />
+        <ContentControl Content="{Binding TestViewModel}" Grid.Row="2"  IsVisible="{Binding IsProjectLoaded}" />
 
         <!--<AvaloniaEdit:TextEditor Text="Hello AvaloniaEdit!" IsEnabled="{Binding IsProjectLoaded}"
 								 LineNumbersForeground="AliceBlue"
