@@ -14,9 +14,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <!--<Menu>
@@ -28,13 +26,44 @@
 			</MenuItem>
 		</Menu>-->
         
-        <StackPanel IsVisible="{Binding IsProjectNotLoaded}">
+        <Grid IsVisible="{Binding IsProjectNotLoaded}" 
+                   HorizontalAlignment="Stretch" 
+                   VerticalAlignment="Stretch">
 	        
-	        <Button Content="New Project" Click="Create_OnClick"></Button>
-	        <Button Content="LoadProject" Click="Load_OnClick"></Button>
-        </StackPanel>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+	        <Button Click="Create_OnClick" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Source="../../Assets/create.png" Height="50" Width="50"></Image>
+                    <TextBlock Text="Create New Project" Grid.Row="1"></TextBlock>
+                </Grid>
+            </Button>
+	        <Button Click="Load_OnClick" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Source="../../Assets/open.png" Height="50" Width="50"></Image>
+                    <TextBlock Text="Load Existing Project" Grid.Row="1"></TextBlock>
+                </Grid>
+            </Button>
+        </Grid>
         
-        <DockPanel Grid.Row="1" IsVisible="{Binding IsProjectLoaded}">
+        <DockPanel IsVisible="{Binding IsProjectLoaded}" Dock="Top">
             <TabControl ItemsSource="{Binding ViewModels}">
                 <TabControl.ItemTemplate>
                     <DataTemplate>
@@ -48,12 +77,5 @@
                 </TabControl.ContentTemplate>
             </TabControl>
         </DockPanel>
-
-
-        <!--<AvaloniaEdit:TextEditor Text="Hello AvaloniaEdit!" IsEnabled="{Binding IsProjectLoaded}"
-								 LineNumbersForeground="AliceBlue"
-                           ShowLineNumbers="True"
-
-								 Grid.Row="1" />-->
     </Grid>
 </UserControl>
