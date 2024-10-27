@@ -6,7 +6,7 @@
         xmlns:views="clr-namespace:Mediary.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Mediary.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/mediary-logo.png"
         Title="Mediary">
         <views:MainView />
 </Window>

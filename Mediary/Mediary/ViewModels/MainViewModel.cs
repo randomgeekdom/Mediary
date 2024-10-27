@@ -1,4 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Mediary.Domain;
 
@@ -8,21 +11,23 @@ public partial class MainViewModel : ViewModelBase
 {
     [ObservableProperty] private string _greeting = "Welcome to Avalonia!";
     [ObservableProperty] private MediaryProject? _mediaryProject;
+    [ObservableProperty] private ViewModelBase? _currentViewModel;
+    [ObservableProperty] private ObservableCollection<ViewModelBase> _viewModels = [];
     
     public bool IsProjectLoaded => MediaryProject is not null;
-    public bool IsProjectNotLoaded => MediaryProject is null; 
-    
-    public TestViewModel TestViewModel { get; } = new TestViewModel();
+    public bool IsProjectNotLoaded => MediaryProject is null;
 
-    protected override void OnPropertyChanged(PropertyChangedEventArgs e)
+
+    public void SetProject(MediaryProject project)
     {
-        if (e.PropertyName == nameof(MediaryProject))
-        {
-            OnPropertyChanged(nameof(IsProjectLoaded));
-            OnPropertyChanged(nameof(IsProjectNotLoaded));
-        }
-        base.OnPropertyChanged(e);
+        MediaryProject = project;
+        
+        ViewModels.Clear();
+        ViewModels.Add(new PlayedViewModel(MediaryProject));
+        
+        OnPropertyChanged(nameof(IsProjectLoaded));
+        OnPropertyChanged(nameof(IsProjectNotLoaded));
     }
-}
 
-public class TestViewModel : ViewModelBase{}
+    public override string Name => "Main";
+}

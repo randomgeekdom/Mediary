@@ -39,8 +39,10 @@ public partial class MainView : UserControl
             await using var stream = await files[0].OpenReadAsync();
             var project = await JsonSerializer.DeserializeAsync<MediaryProjectDto>(stream);
 
-            vm.MediaryProject = MediaryProject.TryCreate(files[0].Path.AbsolutePath).Value;
-            if (project != null) vm.MediaryProject.FromDto(project);
+            var entity = MediaryProject.TryCreate(files[0].Path.AbsolutePath).Value;
+            if (project != null) entity.FromDto(project);
+
+            vm.SetProject(entity);
         }
     }
     
@@ -65,6 +67,6 @@ public partial class MainView : UserControl
         await using var stream = await file.OpenWriteAsync();
         await JsonSerializer.SerializeAsync(stream, project);
 
-        vm.MediaryProject = project;
+        vm.SetProject(project);
     }
 }
