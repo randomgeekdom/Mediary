@@ -7,11 +7,15 @@
              x:Class="Mediary.Views.PlayedView"
              x:DataType="vm:PlayedViewModel">
     <!-- Add Game Section -->
-    <ListBox ItemsSource="{Binding Project.Games}">
-        <ListBox.ItemTemplate>
-            <DataTemplate>
-                <TextBlock Text="{Binding Name}" />
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
+    <StackPanel>
+        <Button Content="Add Game" Command="{Binding ShowAddCommand}" IsVisible="{Binding ShowAddButton}"/>
+        <ContentControl Content="{Binding AddGameViewModel}" IsVisible="{Binding ShowAddGame}"/>
+        <ListBox ItemsSource="{Binding Project.Games}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
 </UserControl>
