@@ -1,10 +1,11 @@
+using CommunityToolkit.Mvvm.ComponentModel;
 using Mediary.Domain;
 
 namespace Mediary.ViewModels;
 
-public class PlayedViewModel : ViewModelBase
+public partial class PlayedViewModel : ViewModelBase
 {
-	private readonly MediaryProject _project;
+	[ObservableProperty] private MediaryProject _project;
 
 	public PlayedViewModel(MediaryProject project)
 	{

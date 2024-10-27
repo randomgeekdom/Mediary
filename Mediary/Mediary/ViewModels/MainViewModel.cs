@@ -24,6 +24,7 @@ public partial class MainViewModel : ViewModelBase
         
         ViewModels.Clear();
         ViewModels.Add(new PlayedViewModel(MediaryProject));
+        ViewModels.Add(new SettingsViewModel());
         
         OnPropertyChanged(nameof(IsProjectLoaded));
         OnPropertyChanged(nameof(IsProjectNotLoaded));

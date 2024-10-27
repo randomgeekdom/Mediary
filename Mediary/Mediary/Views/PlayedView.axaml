@@ -2,7 +2,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Mediary.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Mediary.Views.PlayedView">
-    Welcome to Avalonia!
+             x:Class="Mediary.Views.PlayedView"
+             x:DataType="vm:PlayedViewModel">
+    <!-- Add Game Section -->
+    <ListBox ItemsSource="{Binding Project.Games}">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <TextBlock Text="{Binding Name}" />
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
 </UserControl>
